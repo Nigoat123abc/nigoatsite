@@ -6,14 +6,13 @@
   <title>Nigoat's Bot — Invite the Best Bot</title>
   <meta name="description" content="Nigoat's Bot — powerful moderation, fun commands and utilities. Invite the best bot to your server." />
   <meta name="theme-color" content="#2f3136" />
-  <!-- Google Fonts (optional) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg0:#0f1720;
       --bg1:#0d1117;
-      --accent:#6572ff;        /* button gradient start */
-      --accent2:#8b5cff;       /* button gradient end */
+      --accent:#6572ff;
+      --accent2:#8b5cff;
       --muted:#9aa4b2;
       --glass: rgba(255,255,255,0.03);
       --card: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
@@ -38,7 +37,6 @@
       display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-top:18px;
       background:var(--card);padding:26px;border-radius:18px;box-shadow:0 20px 40px rgba(2,6,23,0.6);backdrop-filter:blur(6px)
     }
-
     .hero-left h2{margin:0;font-size:clamp(28px,3.6vw,40px);line-height:1.02}
     .hero-left p{color:var(--muted);margin-top:12px;font-size:1rem}
     .cta-row{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap;align-items:center}
@@ -49,17 +47,13 @@
     }
     .invite-btn:active{transform:translateY(1px)}
     .secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px 16px;border-radius:10px;color:var(--muted);font-weight:600}
-
     .hero-right{display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center}
     .card-preview{width:100%;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.02));border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03)}
     .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
     .feature{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;text-align:left}
     .feature h4{margin:0 0 6px 0}
     .feature p{margin:0;color:var(--muted);font-size:0.92rem}
-
     footer{margin-top:18px;color:var(--muted);font-size:0.9rem;text-align:center}
-
-    /* responsive */
     @media (max-width:960px){
       .hero{grid-template-columns:1fr}
       .features{grid-template-columns:repeat(2,1fr)}
@@ -69,15 +63,11 @@
       .brand h1{font-size:0.95rem}
       .features{grid-template-columns:1fr}
     }
-
-    /* subtle animated ornament */
     .sparkle {
       position:absolute;right:12%;top:8%;width:280px;height:280px;pointer-events:none;filter:blur(22px);opacity:0.14;
       background:conic-gradient(from 180deg at 50% 50%, rgba(139,92,255,0.9), rgba(101,114,255,0.7), rgba(139,92,255,0.5));
       border-radius:50%;transform:rotate(12deg);
     }
-
-    /* small helper */
     .muted { color:var(--muted); font-size:0.95rem }
     .monosmall { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; background:rgba(255,255,255,0.02); padding:6px 8px;border-radius:8px;font-size:0.9rem }
   </style>
@@ -85,48 +75,49 @@
 <body>
   <div class="sparkle" aria-hidden></div>
   <div class="wrap">
-    <nav class="nav" role="navigation" aria-label="Main nav">
+    <nav class="nav">
       <div class="brand">
-        <div class="logo" aria-hidden>
-          <!-- Simple N icon for Nigoat's Bot -->
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-            <path d="M4 20V4h8l8 16H12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
-          </svg>
+        <div class="logo">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V4h8l8 16H12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div>
           <h1>Nigoat's Bot</h1>
           <p class="muted">Powerful moderation • Fun commands • Ultra-stable</p>
         </div>
       </div>
-
-      <div class="top-right">
-        <a class="btn-ghost" href="#" onclick="window.open(supportUrl,'_blank')">Support Server</a>
-        <a class="btn-ghost" href="#" onclick="copyInvite() ">Copy Invite</a>
-      </div>
     </nav>
 
-    <main class="hero" role="main">
+    <main class="hero">
       <div class="hero-left">
         <h2>Invite the best bot for your Discord server</h2>
-        <p>Moderation, music, fun commands, welcome systems and more — crafted for speed and reliability. Click the button below to add <strong>Nigoat's Bot</strong> to any server you manage.</p>
+        <p>Moderation, music, fun commands, welcome systems and more — crafted for speed and reliability. Click below to add <strong>Nigoat's Bot</strong> to any server you manage.</p>
 
         <div class="cta-row">
-          <button class="invite-btn" id="inviteBtn" aria-label="Invite Nigoat's Bot">
-            <!-- invite icon -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M20 6L9 17l-5 1 1-5 11-11 4 4z" fill="white" opacity=".95"/></svg>
+          <button class="invite-btn" id="inviteBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5 1 1-5 11-11 4 4z" fill="white" opacity=".95"/></svg>
             Invite the Best Bot
           </button>
 
-          <a class="secondary" id="docsBtn" href="#" onclick="scrollToFeatures()">View features</a>
+          <button class="invite-btn" id="joinServerBtn" style="background:linear-gradient(90deg,#5865f2,#4752c4);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M3 12l7-9v6h11v6H10v6l-7-9z" fill="white" opacity=".95"/>
+            </svg>
+            Join Support Server
+          </button>
+
+          <a class="secondary" href="#" onclick="scrollToFeatures()">View features</a>
         </div>
 
+        <div style="margin-top:12px;color:var(--muted)">
+          <span class="monosmall" id="inviteSample">Invite link: &nbsp;—</span>
+        </div>
       </div>
 
-      <aside class="hero-right" aria-label="Preview">
-        <div class="card-preview" role="region" aria-label="Bot preview">
+      <aside class="hero-right">
+        <div class="card-preview">
           <div style="display:flex;gap:12px;align-items:center">
             <div style="width:64px;height:64px;border-radius:12px;background:linear-gradient(180deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:white">NB</div>
-            <div style="flex:1;text-align:left">
+            <div>
               <div style="font-weight:800;font-size:1.05rem">Nigoat's Bot</div>
               <div style="color:var(--muted);font-size:0.95rem;margin-top:6px">Online • 99.9% uptime</div>
             </div>
@@ -144,91 +135,37 @@
     </main>
 
     <section id="features" style="margin-top:20px">
-      <h3 style="margin:0 0 10px 0">Features</h3>
+      <h3>Features</h3>
       <div class="features">
-        <div class="feature">
-          <h4>Moderation</h4>
-          <p>Automated moderation, warnings, strikes, and customizable mod-logs to keep your server safe.</p>
-        </div>
-        <div class="feature">
-          <h4>Auto Roles & Welcome</h4>
-          <p>Welcome new members with customizable messages, auto roles and verification flows.</p>
-        </div>
-        <div class="feature">
-          <h4>Fun & Utility</h4>
-          <p>Games, image commands, polls, and utility tools like reminders and timers.</p>
-        </div>
-        <div class="feature">
-          <h4>Slash Commands</h4>
-          <p>Modern slash commands with autocomplete — easy to discover and use.</p>
-        </div>
-        <div class="feature">
-          <h4>Music</h4>
-          <p>Queue, play, and manage music playback seamlessly (if enabled on server).</p>
-        </div>
-        <div class="feature">
-          <h4>Customizable</h4>
-          <p>Settings per-server, roles control, and modular systems admins can toggle.</p>
-        </div>
+        <div class="feature"><h4>Moderation</h4><p>Automated moderation, warnings, strikes, and mod-logs to keep your server safe.</p></div>
+        <div class="feature"><h4>Auto Roles & Welcome</h4><p>Welcome new members with customizable messages and auto roles.</p></div>
+        <div class="feature"><h4>Fun & Utility</h4><p>Games, image commands, polls, and utility tools like reminders and timers.</p></div>
+        <div class="feature"><h4>Slash Commands</h4><p>Modern slash commands with autocomplete — easy to discover and use.</p></div>
+        <div class="feature"><h4>Music</h4><p>Queue, play, and manage music playback seamlessly (if enabled on server).</p></div>
+        <div class="feature"><h4>Customizable</h4><p>Settings per-server, roles control, and modular systems admins can toggle.</p></div>
       </div>
     </section>
 
     <footer>
-      <div style="margin-top:18px">© <strong>Nigoat's Bot</strong>. Built with ❤️ — invite the bot or join support.</div>
+      <div style="margin-top:18px">© <strong>Nigoat's Bot</strong>. Built with ❤️ — invite or join support.</div>
     </footer>
   </div>
 
   <script>
-    /***********************
-      Configuration - edit here
-    ************************/
-    const CLIENT_ID = "1432471193721766102"; // <- your bot's client ID (already set)
-    const PERMISSIONS = "0";                 // safe default. Change to numeric perms if needed.
-    const supportUrl = "";                   // optionally set your support server URL (discord invite link)
-    /************************/
+    const CLIENT_ID = "1432471193721766102";
+    const PERMISSIONS = "0";
+    const supportUrl = "https://discord.gg/YOURSERVERCODE";
 
-    // Build invite link
     const base = "https://discord.com/oauth2/authorize";
-    const scope = "bot%20applications.commands"; // standard scope including slash commands
+    const scope = "bot%20applications.commands";
     const inviteUrl = `${base}?client_id=${encodeURIComponent(CLIENT_ID)}&permissions=${encodeURIComponent(PERMISSIONS)}&scope=${scope}`;
 
-    // Hook up invite button
-    document.getElementById("inviteBtn").addEventListener("click", function(e){
-      // Open in new tab
-      window.open(inviteUrl, "_blank", "noopener");
-    });
+    document.getElementById("inviteBtn").addEventListener("click", ()=> window.open(inviteUrl, "_blank"));
+    document.getElementById("joinServerBtn").addEventListener("click", ()=> window.open(supportUrl, "_blank"));
 
-    // Show sample invite URL (short)
-    const sample = document.getElementById("inviteSample");
-    sample.textContent = `Invite link: ${inviteUrl}`;
+    document.getElementById("inviteSample").textContent = `Invite link: ${inviteUrl}`;
 
-    // Copy invite helper
-    function copyInvite(){
-      navigator.clipboard?.writeText(inviteUrl).then(()=> {
-        alert("Invite link copied to clipboard!");
-      }).catch(()=> {
-        prompt("Copy the invite link:", inviteUrl);
-      });
-    }
-
-    // Scroll to features
-    function scrollToFeatures(){
-      document.getElementById("features").scrollIntoView({behavior:"smooth"});
-    }
-
-    // Support button fallback
-    if(!supportUrl || supportUrl.length < 5){
-      // Disable support button
-      const b = document.querySelector('.top-right .btn-ghost');
-      if(b) b.setAttribute('href','#'), b.onclick = ()=> { alert("Support link not configured."); return false; };
-    }
-
-    // Small accessibility improvements
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === "Enter" && document.activeElement === document.getElementById("inviteBtn")) {
-        window.open(inviteUrl,'_blank');
-      }
-    });
+    function scrollToFeatures(){document.getElementById("features").scrollIntoView({behavior:"smooth"});}
   </script>
 </body>
 </html>
