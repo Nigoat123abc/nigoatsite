@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Invite My Discord Bot</title>
+  <meta name="description" content="Invite the bot to your Discord server — fast, safe, and clean." />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" />
+  <style>
+    :root {
+      --bg1:#5865F2;
+      --bg2:#3B82F6;
+      --card:#0b1220;
+      --accent:#7289DA;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,body {
+      height:100%;
+      margin:0;
+      font-family: "Poppins", system-ui, sans-serif;
+      color:white;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+
+    .container {
+      max-width:800px;
+      background:rgba(0,0,0,0.4);
+      padding:40px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      font-size:2.5rem;
+      margin-bottom:10px;
+    }
+
+    p {
+      color:#cbd5e1;
+      margin-bottom:25px;
+      line-height:1.5;
+    }
+
+    input {
+      width:100%;
+      padding:12px;
+      border-radius:10px;
+      border:none;
+      outline:none;
+      margin-bottom:12px;
+      font-size:1rem;
+      text-align:center;
+    }
+
+    button {
+      background:var(--accent);
+      color:white;
+      border:none;
+      padding:14px 24px;
+      border-radius:12px;
+      font-size:1.1rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+
+    button:hover {
+      transform:translateY(-2px);
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      margin-top:30px;
+      font-size:0.9rem;
+      opacity:0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Invite My Discord Bot</h1>
+    <p>Enter your bot’s information and click below to generate an invite link instantly.</p>
+
+    <input id="clientId" type="text" placeholder="Enter your Bot Client ID">
+    <input id="permissions" type="text" placeholder="Enter Permissions Number (example: 8)">
+    <button id="inviteBtn">Generate & Invite</button>
+
+    <footer>
+      Made with ❤️ — Works on Wasmer or any free host.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("inviteBtn").addEventListener("click", () => {
+      const clientId = document.getElementById("clientId").value.trim();
+      const permissions = document.getElementById("permissions").value.trim() || "0";
+
+      if (!clientId) {
+        alert("Please enter your bot Client ID.");
+        return;
+      }
+
+      const base = "https://discord.com/oauth2/authorize";
+      const scope = "bot%20applications.commands";
+      const inviteUrl = `${base}?client_id=${clientId}&permissions=${permissions}&scope=${scope}`;
+
+      // Open invite in new tab
+      window.open(inviteUrl, "_blank");
+    });
+  </script>
+</body>
+</html>
