@@ -3,115 +3,232 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Invite My Discord Bot</title>
-  <meta name="description" content="Invite the bot to your Discord server — fast, safe, and clean." />
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" />
+  <title>Nigoat's Bot — Invite the Best Bot</title>
+  <meta name="description" content="Nigoat's Bot — powerful moderation, fun commands and utilities. Invite the best bot to your server." />
+  <meta name="theme-color" content="#2f3136" />
+  <!-- Google Fonts (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg1:#5865F2;
-      --bg2:#3B82F6;
-      --card:#0b1220;
-      --accent:#7289DA;
+    :root{
+      --bg0:#0f1720;
+      --bg1:#0d1117;
+      --accent:#6572ff;        /* button gradient start */
+      --accent2:#8b5cff;       /* button gradient end */
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.03);
+      --card: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:radial-gradient(800px 400px at 10% 10%, rgba(99,102,241,0.08), transparent), radial-gradient(700px 400px at 90% 90%, rgba(139,92,255,0.06), transparent), var(--bg0);font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:#e6eef8}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:40px auto;padding:28px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:6px 12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:52px;height:52px;border-radius:12px;background:linear-gradient(180deg,var(--accent),var(--accent2));
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:white;box-shadow:0 6px 20px rgba(99,102,241,0.18);
+      flex-shrink:0;
+    }
+    .logo svg{width:26px;height:26px}
+    .brand h1{margin:0;font-size:1.05rem}
+    .brand p{margin:0;font-size:0.8rem;color:var(--muted)}
+    .top-right{display:flex;gap:10px;align-items:center}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;font-weight:600}
+    .hero{
+      display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-top:18px;
+      background:var(--card);padding:26px;border-radius:18px;box-shadow:0 20px 40px rgba(2,6,23,0.6);backdrop-filter:blur(6px)
     }
 
-    * { box-sizing: border-box; }
+    .hero-left h2{margin:0;font-size:clamp(28px,3.6vw,40px);line-height:1.02}
+    .hero-left p{color:var(--muted);margin-top:12px;font-size:1rem}
+    .cta-row{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap;align-items:center}
+    .invite-btn{
+      display:inline-flex;align-items:center;gap:12px;padding:14px 20px;border-radius:12px;font-weight:700;
+      color:white;border:none;cursor:pointer;background:linear-gradient(90deg,var(--accent),var(--accent2));
+      box-shadow:0 8px 30px rgba(99,102,241,0.18);font-size:1rem;
+    }
+    .invite-btn:active{transform:translateY(1px)}
+    .secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px 16px;border-radius:10px;color:var(--muted);font-weight:600}
 
-    html,body {
-      height:100%;
-      margin:0;
-      font-family: "Poppins", system-ui, sans-serif;
-      color:white;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
+    .hero-right{display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center}
+    .card-preview{width:100%;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.02));border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03)}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+    .feature{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;text-align:left}
+    .feature h4{margin:0 0 6px 0}
+    .feature p{margin:0;color:var(--muted);font-size:0.92rem}
+
+    footer{margin-top:18px;color:var(--muted);font-size:0.9rem;text-align:center}
+
+    /* responsive */
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .hero-right{order:-1}
+    }
+    @media (max-width:560px){
+      .brand h1{font-size:0.95rem}
+      .features{grid-template-columns:1fr}
     }
 
-    .container {
-      max-width:800px;
-      background:rgba(0,0,0,0.4);
-      padding:40px;
-      border-radius:20px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    /* subtle animated ornament */
+    .sparkle {
+      position:absolute;right:12%;top:8%;width:280px;height:280px;pointer-events:none;filter:blur(22px);opacity:0.14;
+      background:conic-gradient(from 180deg at 50% 50%, rgba(139,92,255,0.9), rgba(101,114,255,0.7), rgba(139,92,255,0.5));
+      border-radius:50%;transform:rotate(12deg);
     }
 
-    h1 {
-      font-size:2.5rem;
-      margin-bottom:10px;
-    }
-
-    p {
-      color:#cbd5e1;
-      margin-bottom:25px;
-      line-height:1.5;
-    }
-
-    input {
-      width:100%;
-      padding:12px;
-      border-radius:10px;
-      border:none;
-      outline:none;
-      margin-bottom:12px;
-      font-size:1rem;
-      text-align:center;
-    }
-
-    button {
-      background:var(--accent);
-      color:white;
-      border:none;
-      padding:14px 24px;
-      border-radius:12px;
-      font-size:1.1rem;
-      font-weight:600;
-      cursor:pointer;
-      transition:transform .15s ease, box-shadow .15s ease;
-    }
-
-    button:hover {
-      transform:translateY(-2px);
-      box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    }
-
-    footer {
-      margin-top:30px;
-      font-size:0.9rem;
-      opacity:0.8;
-    }
+    /* small helper */
+    .muted { color:var(--muted); font-size:0.95rem }
+    .monosmall { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; background:rgba(255,255,255,0.02); padding:6px 8px;border-radius:8px;font-size:0.9rem }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Invite My Discord Bot</h1>
-    <p>Enter your bot’s information and click below to generate an invite link instantly.</p>
+  <div class="sparkle" aria-hidden></div>
+  <div class="wrap">
+    <nav class="nav" role="navigation" aria-label="Main nav">
+      <div class="brand">
+        <div class="logo" aria-hidden>
+          <!-- Simple N icon for Nigoat's Bot -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <path d="M4 20V4h8l8 16H12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Nigoat's Bot</h1>
+          <p class="muted">Powerful moderation • Fun commands • Ultra-stable</p>
+        </div>
+      </div>
 
-    <input id="clientId" type="text" placeholder="Enter your Bot Client ID">
-    <input id="permissions" type="text" placeholder="Enter Permissions Number (example: 8)">
-    <button id="inviteBtn">Generate & Invite</button>
+      <div class="top-right">
+        <a class="btn-ghost" href="#" onclick="window.open(supportUrl,'_blank')">Support Server</a>
+        <a class="btn-ghost" href="#" onclick="copyInvite() ">Copy Invite</a>
+      </div>
+    </nav>
+
+    <main class="hero" role="main">
+      <div class="hero-left">
+        <h2>Invite the best bot for your Discord server</h2>
+        <p>Moderation, music, fun commands, welcome systems and more — crafted for speed and reliability. Click the button below to add <strong>Nigoat's Bot</strong> to any server you manage.</p>
+
+        <div class="cta-row">
+          <button class="invite-btn" id="inviteBtn" aria-label="Invite Nigoat's Bot">
+            <!-- invite icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M20 6L9 17l-5 1 1-5 11-11 4 4z" fill="white" opacity=".95"/></svg>
+            Invite the Best Bot
+          </button>
+
+          <a class="secondary" id="docsBtn" href="#" onclick="scrollToFeatures()">View features</a>
+        </div>
+
+        <div style="margin-top:12px;color:var(--muted)"><span class="monosmall" id="inviteSample">Invite link: &nbsp;—</span></div>
+      </div>
+
+      <aside class="hero-right" aria-label="Preview">
+        <div class="card-preview" role="region" aria-label="Bot preview">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="width:64px;height:64px;border-radius:12px;background:linear-gradient(180deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:white">NB</div>
+            <div style="flex:1;text-align:left">
+              <div style="font-weight:800;font-size:1.05rem">Nigoat's Bot</div>
+              <div style="color:var(--muted);font-size:0.95rem;margin-top:6px">Online • 99.9% uptime</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+            <div class="monosmall">Prefix: <strong>!</strong></div>
+            <div class="monosmall">Commands: <strong>200+</strong></div>
+            <div class="monosmall">Language: <strong>EN</strong></div>
+          </div>
+        </div>
+
+        <div style="margin-top:10px;font-size:0.95rem;color:var(--muted)">Trusted by thousands of communities</div>
+      </aside>
+    </main>
+
+    <section id="features" style="margin-top:20px">
+      <h3 style="margin:0 0 10px 0">Features</h3>
+      <div class="features">
+        <div class="feature">
+          <h4>Moderation</h4>
+          <p>Automated moderation, warnings, strikes, and customizable mod-logs to keep your server safe.</p>
+        </div>
+        <div class="feature">
+          <h4>Auto Roles & Welcome</h4>
+          <p>Welcome new members with customizable messages, auto roles and verification flows.</p>
+        </div>
+        <div class="feature">
+          <h4>Fun & Utility</h4>
+          <p>Games, image commands, polls, and utility tools like reminders and timers.</p>
+        </div>
+        <div class="feature">
+          <h4>Slash Commands</h4>
+          <p>Modern slash commands with autocomplete — easy to discover and use.</p>
+        </div>
+        <div class="feature">
+          <h4>Music</h4>
+          <p>Queue, play, and manage music playback seamlessly (if enabled on server).</p>
+        </div>
+        <div class="feature">
+          <h4>Customizable</h4>
+          <p>Settings per-server, roles control, and modular systems admins can toggle.</p>
+        </div>
+      </div>
+    </section>
 
     <footer>
-      Made with ❤️ — Works on Wasmer or any free host.
+      <div style="margin-top:18px">© <strong>Nigoat's Bot</strong>. Built with ❤️ — invite the bot or join support.</div>
     </footer>
   </div>
 
   <script>
-    document.getElementById("inviteBtn").addEventListener("click", () => {
-      const clientId = document.getElementById("clientId").value.trim();
-      const permissions = document.getElementById("permissions").value.trim() || "0";
+    /***********************
+      Configuration - edit here
+    ************************/
+    const CLIENT_ID = "1432471193721766102"; // <- your bot's client ID (already set)
+    const PERMISSIONS = "0";                 // safe default. Change to numeric perms if needed.
+    const supportUrl = "";                   // optionally set your support server URL (discord invite link)
+    /************************/
 
-      if (!clientId) {
-        alert("Please enter your bot Client ID.");
-        return;
+    // Build invite link
+    const base = "https://discord.com/oauth2/authorize";
+    const scope = "bot%20applications.commands"; // standard scope including slash commands
+    const inviteUrl = `${base}?client_id=${encodeURIComponent(CLIENT_ID)}&permissions=${encodeURIComponent(PERMISSIONS)}&scope=${scope}`;
+
+    // Hook up invite button
+    document.getElementById("inviteBtn").addEventListener("click", function(e){
+      // Open in new tab
+      window.open(inviteUrl, "_blank", "noopener");
+    });
+
+    // Show sample invite URL (short)
+    const sample = document.getElementById("inviteSample");
+    sample.textContent = `Invite link: ${inviteUrl}`;
+
+    // Copy invite helper
+    function copyInvite(){
+      navigator.clipboard?.writeText(inviteUrl).then(()=> {
+        alert("Invite link copied to clipboard!");
+      }).catch(()=> {
+        prompt("Copy the invite link:", inviteUrl);
+      });
+    }
+
+    // Scroll to features
+    function scrollToFeatures(){
+      document.getElementById("features").scrollIntoView({behavior:"smooth"});
+    }
+
+    // Support button fallback
+    if(!supportUrl || supportUrl.length < 5){
+      // Disable support button
+      const b = document.querySelector('.top-right .btn-ghost');
+      if(b) b.setAttribute('href','#'), b.onclick = ()=> { alert("Support link not configured."); return false; };
+    }
+
+    // Small accessibility improvements
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === "Enter" && document.activeElement === document.getElementById("inviteBtn")) {
+        window.open(inviteUrl,'_blank');
       }
-
-      const base = "https://discord.com/oauth2/authorize";
-      const scope = "bot%20applications.commands";
-      const inviteUrl = `${base}?client_id=${clientId}&permissions=${permissions}&scope=${scope}`;
-
-      // Open invite in new tab
-      window.open(inviteUrl, "_blank");
     });
   </script>
 </body>
